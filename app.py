@@ -10,6 +10,7 @@ def clear_screen():
 
 class FindPayments:
     def __init__(self):
+        clear_screen()
         # Initialize an empty list of people to add to when prompted
         self.people_in_group = []
         self.group = Group(self.people_in_group)
@@ -77,23 +78,18 @@ class FindPayments:
             self.group.people = []
             self.create_group(input(("-" * 28) + "\n""Enter a list of people that share bills, each separated by a comma\n"))
         else:
-            pass
+            clear_screen()
 
     # Display and execute user options
     def select_program_options(self):
         while self.run_program:
             main_options = input("Please Select an Option\n" +
                                  ("="*20) +
-                                 "\nPress 0 to end program\n"
-                                 "Press 1 to add monthly bills\n"
-                                 "Press 2 to add a new person to this group\n"
-                                 "Press 3 to record someone paying a bill\n"
-                                 "Press 4 to record debt between two people\n"
-                                 "Press 5 to list people in group\n"
-                                 "Press 6 to review current bill amount \n"
-                                 "Press 7 to see how much each person in your group needs to pay\n"
-                                 "Press 8 to remove a member from the group\n"
-                                 "Press h for help\n"
+                                 "\nPress 0 to end program || Press h for help\n"
+                                 "Press 1 to add monthly bills || Press 2 to add a new person to this group\n"
+                                 "Press 3 to record someone paying a bill || Press 4 to record debt between two people\n"
+                                 "Press 5 to list people in group || Press 6 to review current bill amount\n"
+                                 "Press 7 to see how much each person in your group needs to pay || Press 8 to remove a member from the group\n"
                                  )
             try:
                 if main_options == "h":
