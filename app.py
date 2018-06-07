@@ -28,12 +28,14 @@ class FindPayments:
             # Determine if User wants to continue, make sure they input an int.
             try:
                 if int(start) == 1:
+                    clear_screen()
                     user_person_input = input(("-" * 28) + "\n""Enter a list of people that share bills, each separated by a comma\n")
                     self.create_group(user_person_input)
                     self.group = Group(self.people_in_group)
                     if self.group.people:
                         self.select_program_options()
                     else:
+                        clear_screen()
                         print("Invalid Group, must include at least one person. \n"
                               "Exiting Program")
                         self.end_program()
@@ -66,6 +68,7 @@ class FindPayments:
                     ppl = Person(ppl)
                     self.people_in_group.append(ppl)
                 break
+        clear_screen()
         confirm = input("These are the people you want to add to your group? \n {0}"
                     "\n Do you want to continue? \n Press 0 start over \n"
                     .format([p.name for p in self.people_in_group]))
@@ -90,7 +93,6 @@ class FindPayments:
                                  "Press 6 to review current bill amount \n"
                                  "Press 7 to see how much each person in your group needs to pay\n"
                                  "Press 8 to remove a member from the group\n"
-                                 "Press 9 to save your info for later use\n"
                                  "Press h for help\n"
                                  )
             try:
@@ -100,6 +102,7 @@ class FindPayments:
                 if int(main_options) == 0:
                     self.end_program()
                 if int(main_options) == 1:
+                    clear_screen()
                     print(self.add_monthly_bill())
                 if int(main_options) == 2:
                     self.create_person_entry()
