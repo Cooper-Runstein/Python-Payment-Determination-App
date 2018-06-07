@@ -1,6 +1,12 @@
 from Group import Group
 from Person import Person
+import os
 
+def clear_screen():
+    if os.name == 'nt':
+        os.system('cls')
+    else:
+        os.system('clear')
 
 class FindPayments:
     def __init__(self):
