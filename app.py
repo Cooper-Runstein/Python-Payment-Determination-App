@@ -23,7 +23,7 @@ class FindPayments:
     # Takes user input and creates people and group
     def start_program(self):
         while self.run_program:
-            start = input("To create a group, press 1 \n, To load your last group, press 2 \n To exit, press 0 \n"
+            start = input("To create a group, press 1 \n To exit, press 0 \n"
                           + "Press h for help \n" + ("-"*28) + "\n")
             # Determine if User wants to continue, make sure they input an int.
             try:
@@ -40,11 +40,6 @@ class FindPayments:
                 # If a valid int is used that is NOT 1, even if not 0, program will exit
                 if int(start) == 0:
                     self.run_program = False
-                if int(start) == 2:
-                    load = Load()
-                    self.group = load.create_group()
-                    if self.group.people:
-                        self.select_program_options()
             except ValueError:
                 if start == "h":
                     self.start_help(0)
