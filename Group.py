@@ -20,7 +20,11 @@ class Group:
                 self.people.remove(person)
 
     def record_bill(self, amount):
-        self.bills += amount
+        try: 
+            amount = float(amount)
+            self.bills += amount
+        except ValueError:
+            pass
 
     def print_bills(self):
         return float(self.bills)
@@ -35,7 +39,7 @@ class Group:
     def return_individuals_netamount(self):
         for person in self.people:
             name = person.name
-            print(person.net_amount, '----', str(name), "amount in account")
+            print('{0} ---- ,{1} amount in account'.format(person.net_amount, str(name)))
 
     def return_amount_to_pay(self):
         for person in self.people:
@@ -44,7 +48,7 @@ class Group:
             if amount > 0:
                 print("{0} needs to pay {1}".format(name, amount))
             elif amount == 0:
-                print("Nothing is owed by {0} month".format(str(name)))
+                print("Nothing is owed by {}".format(str(name)))
             elif amount < 0:
                 print("{0} is owed {1}".format(name, amount))
 
