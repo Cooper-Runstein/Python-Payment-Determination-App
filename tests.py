@@ -48,6 +48,11 @@ class GroupTests(unittest.TestCase):
         self.group1.record_debt_event(self.person1, self.person2, 500)
         assert self.person1.return_net_amount() == -500
         assert self.person2.return_net_amount() == 1000
+    
+    def test_remove_person(self):
+        self.group1.remove_person("Bob")
+        self.assertNotIn(self.person1, self.group1.people)
+
 
 
 if __name__ == '__main__':
